@@ -13,12 +13,8 @@ jobs:
       - name: Checkout Repository 
         uses: actions/checkout@v4 
  
-      - name: Deploy Website 
-        run: | 
-          sudo rsync -av --delete \ 
-            --exclude='.git' \ 
-            --exclude='.github' \ 
-            ./ /var/www/html/ 
+      - name: Deploy Website
+        run: sudo rsync -av --delete --exclude='.git' --exclude='.github' ./ /var/www/html/
  
       - name: Restart Nginx 
         run: | 
